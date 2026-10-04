@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BlueLib Catalogue</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">
+      <!-- LOGO PLACEHOLDER: replace images/logo.svg with your own logo file -->
+      <img src="images/bluecrest-college-gh-logo-seal.webp" alt="BlueLib logo" class="logo" width="44" height="44">
+      <span class="brand-text"><strong>BlueLib Catalogue</strong><small>BlueCrest College Library</small></span>
+    </a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html" aria-current="page">Browse</a></li>
+        <li><a href="index.html#add">Add Book</a></li>
+        <li><a href="borrowed.html">My Borrowed Books <span id="borrow-count" class="count" hidden>0</span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO IMAGE PLACEHOLDER: replace images/hero-placeholder.svg with your own banner (jpg/png/svg) -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <img src="images/clean-code.jpg.jpg" alt="" class="hero-img">
+      <div class="hero-text">
+        <h1 id="hero-heading">Find your next great read</h1>
+        <p>Browse, borrow and return books from the BlueCrest College Library.</p>
+      </div>
+    </section>
+
+    <!-- BOOK PICTURES: put each book's image file name in data-image (files go in the images folder).
+         Leave data-image="" to use the default cover. data-book is the book number; do not change it. -->
+    <ul id="book-covers" hidden>
+      <li data-book="1" data-image="images/clean-code.jpg.jpg">Introduction to Algorithms</li>
+      <li data-book="2" data-image=images/geranimo-bKhETeDV1WM-unsplash.jpg>Clean Code</li>
+      <li data-book="3" data-image="images/bussines.jpg">Principles of Marketing</li>
+      <li data-book="4" data-image="images/wp15177533-gta-8k-wallpapers.webp">The Lean Startup</li>
+      <li data-book="5" data-image="images/brief-history-of-time.jpg.jpg">A Brief History of Time</li>
+      <li data-book="6" data-image="images/wp16044571-gta-v-8k-wallpapers.jpg">The Story of Art</li>
+      <li data-book="7" data-image="images/silent-spring.jpg.jpg">Things Fall Apart</li>
+    </ul>
+
+    <section id="browse" aria-labelledby="browse-heading">
+      <h2 id="browse-heading">Browse Books</h2>
+      <div class="controls">
+        <div class="field">
+          <label for="search">Search by title</label>
+          <input type="search" id="search" placeholder="Type a title...">
+        </div>
+        <div class="field">
+          <label for="filter-category">Category</label>
+          <select id="filter-category">
+            <option value="All">All</option>
+            <option value="IT">IT</option>
+            <option value="Business">Business</option>
+            <option value="Science">Science</option>
+            <option value="Arts">Arts</option>
+          </select>
+        </div>
+      </div>
+      <p id="no-results" class="message" hidden>No books match your search.</p>
+      <div id="book-list" class="book-grid"></div>
+    </section>
+
+    <section id="add" aria-labelledby="add-heading">
+      <h2 id="add-heading">Add a Book</h2>
+      <form id="add-form" novalidate>
+        <div class="field">
+          <label for="title">Title</label>
+          <input type="text" id="title" name="title">
+        </div>
+        <div class="field">
+          <label for="author">Author</label>
+          <input type="text" id="author" name="author">
+        </div>
+        <div class="field">
+          <label for="category">Category</label>
+          <select id="category" name="category">
+            <option value="">-- Select --</option>
+            <option value="IT">IT</option>
+            <option value="Business">Business</option>
+            <option value="Science">Science</option>
+            <option value="Arts">Arts</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="copies">Copies Available</label>
+          <input type="number" id="copies" name="copies" min="0" step="1">
+        </div>
+        <div class="field">
+          <label for="image">Cover image (optional)</label>
+          <input type="text" id="image" name="image" placeholder="e.g. my-book.jpg">
+        </div>
+        <p id="form-error" class="error" role="alert" hidden></p>
+        <p id="form-success" class="success" role="status" hidden></p>
+        <button type="submit" class="btn">Add Book</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p> Bright maclean, Student ID: 400622039147</p>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="js/store.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
